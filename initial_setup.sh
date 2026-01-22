@@ -82,7 +82,7 @@ echo ""
 echo "3. Installing base dependencies..."
 echo "------------------------------------------"
 
-npm install
+sudo npm install
 echo "✓ Base dependencies installed"
 
 echo ""
@@ -95,12 +95,12 @@ echo "------------------------------------------"
 
 # Zustand for state management
 echo "Installing Zustand..."
-npm install zustand
+sudo npm install zustand
 echo "✓ Zustand installed"
 
 # @dnd-kit full suite for drag and drop
 echo "Installing @dnd-kit packages..."
-npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
+sudo npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
 echo "✓ @dnd-kit packages installed (core, sortable, utilities)"
 
 echo ""
