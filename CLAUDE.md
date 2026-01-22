@@ -15,9 +15,10 @@ Project Overview
   on the right
 
   Technical Choices
-  ┌───────────────────┬────────────────────────────┐
+  
+  │--------│-----------│
   │      Aspect       │           Choice           │
-  ├───────────────────┼────────────────────────────┤
+  │───────────────────│────────────────────────────│
   │ Framework         │ React + TypeScript + Vite  │
   ├───────────────────┼────────────────────────────┤
   │ State Management  │ Zustand                    │
@@ -39,3 +40,4 @@ Project Overview
   - Custom node types beyond Directory/File/Class/Method?
   - Markdown support for descriptions?
   - Auto-import from IDE/file structure?
+
