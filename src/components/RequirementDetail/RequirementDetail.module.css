@@ -1,0 +1,163 @@
+.container {
+  padding: 1.25rem 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.code {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btnEdit {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: #334155;
+  border: none;
+  border-radius: 0.25rem;
+  color: #f1f5f9;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnEdit:hover {
+  background: #475569;
+}
+
+.btnDelete {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid #dc2626;
+  border-radius: 0.25rem;
+  color: #ef4444;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnDelete:hover {
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metaLabel {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.metaValue {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Priority colors */
+.prioritylow {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.prioritymedium {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.priorityhigh {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+}
+
+.prioritycritical {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* Status colors */
+.statusnotstarted {
+  background: rgba(100, 116, 139, 0.15);
+  color: #94a3b8;
+}
+
+.statusinprogress {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.statuscomplete {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.statusblocked {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.description {
+  margin-top: 1rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+.descriptionText {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.progressWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.progressLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.percentage {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.progressBar {
+  height: 6px;
+  background: #0f172a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.stats {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.statusBreakdown {
+  display: flex;
+  gap: 1rem;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.statusDot.notStarted {
+  background: #64748b;
+}
+
+.statusDot.inProgress {
+  background: #3b82f6;
+}
+
+.statusDot.complete {
+  background: #22c55e;
+}
+
+.statusDot.blocked {
+  background: #ef4444;
+}
+
+.statusCount {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
