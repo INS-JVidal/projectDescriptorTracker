@@ -41,3 +41,14 @@ Project Overview
   - Markdown support for descriptions?
   - Auto-import from IDE/file structure?
 
+========================================
+        INSTALLATION SUMMARY
+========================================
+TOOL            VERSION
+----------------------------------------
+Node.js         v20.20.0
+npm             10.8.2
+create-vite     8.2.0
+TypeScript      5.9.3
+Git             2.43.0
+========================================
