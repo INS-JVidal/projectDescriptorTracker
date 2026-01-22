@@ -185,7 +185,7 @@ The implementation tree is the most complex UI element. Approach:
 
 1. **Recursive rendering** — each `TreeNode` renders its children
 2. **Controlled expansion** — store expanded node IDs in state
-3. **Drag-drop** — use `@dnd-kit/core`
+3. **Drag-drop** — use `react-dnd` or `@dnd-kit/core`
 4. **Inline editing** — toggle between display and input mode
 
 ---
