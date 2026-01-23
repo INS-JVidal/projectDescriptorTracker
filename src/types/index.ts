@@ -73,6 +73,7 @@ export interface UIState {
   editingRequirementId: string | null;
   isAddNodeModalOpen: boolean;
   addNodeParentId: string | null;
+  statusFilter: RequirementStatus | null;
 }
 
 // ============================================
@@ -137,6 +138,7 @@ export interface ProjectActions {
   setEditingRequirementId: (id: string | null) => void;
   openAddNodeModal: (parentId: string | null) => void;
   closeAddNodeModal: () => void;
+  setStatusFilter: (status: RequirementStatus | null) => void;
 
   // Persistence
   loadFromStorage: () => void;

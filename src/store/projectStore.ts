@@ -9,6 +9,7 @@ import type {
   Requirement,
   ImplementationNode,
   ExportData,
+  RequirementStatus,
 } from '../types';
 
 const generateId = (): string => {
@@ -27,6 +28,7 @@ const initialUIState = {
   editingRequirementId: null,
   isAddNodeModalOpen: false,
   addNodeParentId: null,
+  statusFilter: null as RequirementStatus | null,
 };
 
 const initialState: ProjectState = {
@@ -339,6 +341,10 @@ export const useProjectStore = create<ProjectStore>()(
         set((state) => ({ ui: { ...state.ui, isAddNodeModalOpen: false, addNodeParentId: null } }));
       },
 
+      setStatusFilter: (status: RequirementStatus | null) => {
+        set((state) => ({ ui: { ...state.ui, statusFilter: status } }));
+      },
+
       // Persistence
       loadFromStorage: () => {
         // Handled by zustand persist middleware
@@ -442,6 +448,11 @@ export const useProjectStore = create<ProjectStore>()(
         subcategories: state.subcategories,
         requirements: state.requirements,
         implementationNodes: state.implementationNodes,
+      }),
+      merge: (persistedState, currentState) => ({
+        ...currentState,
+        ...(persistedState as Partial<ProjectState>),
+        ui: currentState.ui, // Always use fresh UI state with proper Set objects
       }),
     }
   )

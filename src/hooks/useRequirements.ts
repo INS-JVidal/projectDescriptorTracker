@@ -28,13 +28,20 @@ export function useRequirements() {
     setIsAddingSubcategory,
     setIsAddingRequirement,
     setEditingRequirementId,
+    setStatusFilter,
   } = useProjectStore();
 
   // Build the hierarchical tree for the current project
   const requirementsTree = useMemo((): CategoryWithChildren[] => {
     if (!ui.selectedProjectId) return [];
-    return buildRequirementsTree(categories, subcategories, requirements, ui.selectedProjectId);
-  }, [categories, subcategories, requirements, ui.selectedProjectId]);
+
+    // Filter requirements by status if a filter is set
+    const filteredRequirements = ui.statusFilter
+      ? requirements.filter((r) => r.status === ui.statusFilter)
+      : requirements;
+
+    return buildRequirementsTree(categories, subcategories, filteredRequirements, ui.selectedProjectId);
+  }, [categories, subcategories, requirements, ui.selectedProjectId, ui.statusFilter]);
 
   // Get the currently selected requirement
   const selectedRequirement = useMemo((): Requirement | null => {
@@ -133,6 +140,7 @@ export function useRequirements() {
     isAddingRequirement: ui.isAddingRequirement,
     editingRequirementId: ui.editingRequirementId,
     selectedRequirementId: ui.selectedRequirementId,
+    statusFilter: ui.statusFilter,
 
     // Category actions
     createCategory,
@@ -157,6 +165,9 @@ export function useRequirements() {
     selectRequirement,
     setIsAddingRequirement,
     setEditingRequirementId,
+
+    // Filter actions
+    setStatusFilter,
   };
 }
 

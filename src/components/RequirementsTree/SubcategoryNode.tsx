@@ -121,7 +121,7 @@ export function SubcategoryNode({ subcategory }: Props) {
             <RequirementNode key={requirement.id} requirement={requirement} />
           ))}
 
-          {isAddingRequirementHere && (
+          {isAddingRequirementHere ? (
             <div className={styles.addForm}>
               <input
                 type="text"
@@ -156,6 +156,13 @@ export function SubcategoryNode({ subcategory }: Props) {
                 </button>
               </div>
             </div>
+          ) : (
+            <button
+              onClick={() => setIsAddingRequirement(subcategory.id)}
+              className={styles.addButton}
+            >
+              + Add Requirement
+            </button>
           )}
         </div>
       )}

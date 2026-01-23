@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRequirements } from '../../hooks/useRequirements';
 import { CategoryNode } from './CategoryNode';
+import type { RequirementStatus } from '../../types';
 import styles from './RequirementsTree.module.css';
 
 export function RequirementsTree() {
@@ -9,6 +10,8 @@ export function RequirementsTree() {
     isAddingCategory,
     setIsAddingCategory,
     createCategory,
+    statusFilter,
+    setStatusFilter,
   } = useRequirements();
 
   const [newCategoryName, setNewCategoryName] = useState('');
@@ -29,8 +32,27 @@ export function RequirementsTree() {
     }
   };
 
+  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setStatusFilter(value ? (value as RequirementStatus) : null);
+  };
+
   return (
     <div className={styles.container}>
+      <div className={styles.filterBar}>
+        <select
+          value={statusFilter || ''}
+          onChange={handleFilterChange}
+          className={styles.filterSelect}
+        >
+          <option value="">All Statuses</option>
+          <option value="not-started">Not Started</option>
+          <option value="in-progress">In Progress</option>
+          <option value="complete">Complete</option>
+          <option value="blocked">Blocked</option>
+        </select>
+      </div>
+
       <div className={styles.tree}>
         {requirementsTree.map((category) => (
           <CategoryNode key={category.id} category={category} />

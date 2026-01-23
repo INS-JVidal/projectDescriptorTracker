@@ -1,8 +1,14 @@
 import { useRequirements } from '../../hooks/useRequirements';
+import type { RequirementStatus } from '../../types';
 import styles from './CoverageSummary.module.css';
 
 export function CoverageSummary() {
-  const { coverageStats } = useRequirements();
+  const { coverageStats, statusFilter, setStatusFilter } = useRequirements();
+
+  const handleStatusClick = (status: RequirementStatus) => {
+    // Toggle filter: if already selected, clear it; otherwise set it
+    setStatusFilter(statusFilter === status ? null : status);
+  };
 
   if (coverageStats.totalRequirements === 0) {
     return (
@@ -33,22 +39,38 @@ export function CoverageSummary() {
       </div>
 
       <div className={styles.statusBreakdown}>
-        <div className={styles.statusItem}>
+        <button
+          onClick={() => handleStatusClick('not-started')}
+          className={`${styles.statusButton} ${statusFilter === 'not-started' ? styles.active : ''}`}
+        >
           <span className={`${styles.statusDot} ${styles.notStarted}`} />
+          <span className={styles.statusLabel}>Not Started</span>
           <span className={styles.statusCount}>{coverageStats.byStatus['not-started']}</span>
-        </div>
-        <div className={styles.statusItem}>
+        </button>
+        <button
+          onClick={() => handleStatusClick('in-progress')}
+          className={`${styles.statusButton} ${statusFilter === 'in-progress' ? styles.active : ''}`}
+        >
           <span className={`${styles.statusDot} ${styles.inProgress}`} />
+          <span className={styles.statusLabel}>In Progress</span>
           <span className={styles.statusCount}>{coverageStats.byStatus['in-progress']}</span>
-        </div>
-        <div className={styles.statusItem}>
+        </button>
+        <button
+          onClick={() => handleStatusClick('complete')}
+          className={`${styles.statusButton} ${statusFilter === 'complete' ? styles.active : ''}`}
+        >
           <span className={`${styles.statusDot} ${styles.complete}`} />
+          <span className={styles.statusLabel}>Complete</span>
           <span className={styles.statusCount}>{coverageStats.byStatus.complete}</span>
-        </div>
-        <div className={styles.statusItem}>
+        </button>
+        <button
+          onClick={() => handleStatusClick('blocked')}
+          className={`${styles.statusButton} ${statusFilter === 'blocked' ? styles.active : ''}`}
+        >
           <span className={`${styles.statusDot} ${styles.blocked}`} />
+          <span className={styles.statusLabel}>Blocked</span>
           <span className={styles.statusCount}>{coverageStats.byStatus.blocked}</span>
-        </div>
+        </button>
       </div>
     </div>
   );
